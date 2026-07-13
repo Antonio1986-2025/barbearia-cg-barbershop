@@ -1725,11 +1725,11 @@
 
     // 6. Active nav highlight on scroll
     const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-links a:not(.nav-cta)');
+    const navLinkElements = document.querySelectorAll('.nav-links a:not(.nav-cta)');
     const navObserver = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          navLinks.forEach(l => l.style.color = '');
+          navLinkElements.forEach(l => l.style.color = '');
           const link = document.querySelector('.nav-links a[href="#' + entry.target.id + '"]');
           if (link) link.style.color = 'var(--gold)';
         }
