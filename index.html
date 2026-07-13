@@ -1179,44 +1179,38 @@
       <div class="services-header reveal">
         <span class="section-tag">Nossos serviços</span>
         <h2 class="section-title">Cada detalhe, um<br>novo visual</h2>
-        <p class="section-desc" style="margin:0 auto;">Preços oficiais — confira os valores praticados na barbearia.</p>
+        <p class="section-desc" style="margin:0 auto;">Do clássico ao moderno — o cuidado que seu visual merece.</p>
       </div>
       <div class="services-grid">
         <div class="service-card reveal">
           <div class="service-icon">✂️</div>
           <h3>Corte de Cabelo</h3>
           <p>Corte personalizado com tesoura e máquina. Inclui lavagem e finalização.</p>
-          <div class="service-price">R$ 55 <small>45min</small></div>
         </div>
         <div class="service-card reveal">
           <div class="service-icon">🧔</div>
           <h3>Barba (Aparar/Alinhar)</h3>
           <p>Aparar e alinhar a barba com navalha, toalha quente e balm hidratante.</p>
-          <div class="service-price">R$ 55 <small>45min</small></div>
         </div>
         <div class="service-card reveal">
           <div class="service-icon">🔥</div>
           <h3>Cabelo + Barba</h3>
           <p>Nosso combo mais popular. Corte completo + barba. Economia e praticidade.</p>
-          <div class="service-price">R$ 100 <small>1h15min</small></div>
         </div>
         <div class="service-card reveal">
           <div class="service-icon">⚡</div>
           <h3>Raspar (Mesmo Tamanho)</h3>
           <p>Raspagem completa com o mesmo tamanho em todo o cabelo. Rápido e prático.</p>
-          <div class="service-price">R$ 30 <small>15min</small></div>
         </div>
         <div class="service-card reveal">
           <div class="service-icon">👂</div>
           <h3>Depilação Orelha</h3>
           <p>Depilação de orelha com pinça e navalha. Detalhe que faz a diferença.</p>
-          <div class="service-price">R$ 25 <small>15min</small></div>
         </div>
         <div class="service-card reveal">
           <div class="service-icon">👑</div>
           <h3>Pacote VIP</h3>
           <p>Corte + Barba + Depilação. Saia completo e impecável da barbearia.</p>
-          <div class="service-price">R$ 125 <small>1h30min</small></div>
         </div>
       </div>
     </div>
@@ -1373,29 +1367,23 @@
         <h2>📋 Escolha o serviço</h2>
         <p class="sub">Selecione o que você precisa</p>
         <div class="service-select" id="serviceList">
-          <div class="service-option" data-service="Corte de Cabelo" data-price="R$ 55" onclick="selectService(this)">
+          <div class="service-option" data-service="Corte de Cabelo" onclick="selectService(this)">
             <span class="name">✂️ Corte de Cabelo — 45min</span>
-            <span class="price">R$ 55</span>
           </div>
-          <div class="service-option" data-service="Barba (Aparar/Alinhar)" data-price="R$ 55" onclick="selectService(this)">
+          <div class="service-option" data-service="Barba (Aparar/Alinhar)" onclick="selectService(this)">
             <span class="name">🧔 Barba (Aparar/Alinhar) — 45min</span>
-            <span class="price">R$ 55</span>
           </div>
-          <div class="service-option" data-service="Cabelo + Barba" data-price="R$ 100" onclick="selectService(this)">
+          <div class="service-option" data-service="Cabelo + Barba" onclick="selectService(this)">
             <span class="name">🔥 Cabelo + Barba — 1h15min</span>
-            <span class="price">R$ 100</span>
           </div>
-          <div class="service-option" data-service="Raspar (Mesmo Tamanho)" data-price="R$ 30" onclick="selectService(this)">
+          <div class="service-option" data-service="Raspar (Mesmo Tamanho)" onclick="selectService(this)">
             <span class="name">⚡ Raspar (Mesmo Tamanho) — 15min</span>
-            <span class="price">R$ 30</span>
           </div>
-          <div class="service-option" data-service="Depilação Orelha" data-price="R$ 25" onclick="selectService(this)">
+          <div class="service-option" data-service="Depilação Orelha" onclick="selectService(this)">
             <span class="name">👂 Depilação Orelha — 15min</span>
-            <span class="price">R$ 25</span>
           </div>
-          <div class="service-option" data-service="Pacote VIP (Corte + Barba + Depilação)" data-price="R$ 125" onclick="selectService(this)">
+          <div class="service-option" data-service="Pacote VIP (Corte + Barba + Depilação)" onclick="selectService(this)">
             <span class="name">👑 Pacote VIP — 1h30min</span>
-            <span class="price">R$ 125</span>
           </div>
         </div>
         <button class="modal-btn primary" id="step1Btn" onclick="goToStep2()" disabled>Continuar →</button>
@@ -1573,7 +1561,7 @@
       document.querySelectorAll('.service-option').forEach(o => o.classList.remove('selected'));
       el.classList.add('selected');
       bookingData.service = el.dataset.service;
-      bookingData.price = el.dataset.price;
+      bookingData.price = '';
       document.getElementById('step1Btn').disabled = false;
     }
     function selectBarber(el) {
@@ -1593,7 +1581,7 @@
       const dayName = weekdayNames[d.getDay()];
       const formattedDate = d.toLocaleDateString('pt-BR');
       document.getElementById('reviewContent').innerHTML =
-        '<p><span class="label">Serviço</span><br><span>' + bookingData.service + ' — ' + bookingData.price + '</span></p>' +
+        '<p><span class="label">Serviço</span><br><span>' + bookingData.service + '</span></p>' +
         '<p style="margin-top:0.8rem;"><span class="label">Barbeiro</span><br><span>' + bookingData.barber + '</span></p>' +
         '<p style="margin-top:0.8rem;"><span class="label">Data</span><br><span>' + dayName + ', ' + formattedDate + '</span></p>' +
         '<p style="margin-top:0.8rem;"><span class="label">Horário</span><br><span>' + bookingData.time + '</span></p>';
@@ -1641,7 +1629,7 @@
       const dayName = weekdayNames[d.getDay()];
       const formattedDate = d.toLocaleDateString('pt-BR');
       const msg = 'Olá! Gostaria de agendar um horário 🙋‍♂️%0A%0A' +
-        '🔹 *Serviço:* ' + bookingData.service + ' (' + bookingData.price + ')%0A' +
+        '🔹 *Serviço:* ' + bookingData.service + '%0A' +
         '🔹 *Barbeiro:* ' + bookingData.barber + '%0A' +
         '🔹 *Data:* ' + dayName + ', ' + formattedDate + '%0A' +
         '🔹 *Horário:* ' + bookingData.time + '%0A%0A' +
