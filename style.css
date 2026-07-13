@@ -448,15 +448,6 @@
       margin-bottom: 1rem;
       font-weight: 300;
     }
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--gold);
-      font-family: var(--font-display);
-    }
-      font-size: 0.8rem;
-      color: var(--gray);
-      font-weight: 400;
-    }
 
     /* ===== GALLERY ===== */
     .gallery-grid {
