@@ -363,6 +363,33 @@
       gap: 1.5rem;
       margin-top: 2rem;
     }
+    .team-grid {
+      display: flex;
+      gap: 1rem;
+      margin: 1rem 0 2rem;
+    }
+    .team-card {
+      text-align: center;
+      flex: 1;
+    }
+    .team-photo {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 2px solid var(--gold);
+      object-fit: cover;
+      margin-bottom: 0.5rem;
+      transition: var(--transition);
+    }
+    .team-photo:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(201,168,76,0.3);
+    }
+    .team-card strong {
+      display: block;
+      color: var(--cream);
+      font-size: 1rem;
+    }
     .stat-item {
       text-align: center;
       padding: 1.5rem;
@@ -741,6 +768,7 @@
       .about-stats { grid-template-columns: repeat(3, 1fr); gap: 0.8rem; }
       .stat-item { padding: 1rem; }
       .stat-number { font-size: 1.6rem; }
+      .team-grid { flex-wrap: wrap; justify-content: center; }
       .footer-grid { grid-template-columns: 1fr; }
       .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
       .hero h1 { font-size: 2.5rem; }
@@ -1112,10 +1140,19 @@
           <p>Nosso time é formado por barbeiros experientes — <strong>Roger, Eduardo e Victor</strong> — apaixonados pelo que fazem. Cada corte é feito com atenção aos detalhes, do degradê perfeito ao acabamento da barba com navalha. Ambiente climatizado, cadeiras confortáveis e aquele atendimento que faz você voltar sempre.</p>
           <h3>💈 Nossa Equipe</h3>
           <p>Conheça nossos barbeiros:</p>
-          <div class="team-mini">
-            <div class="team-mini-item"><strong>Roger</strong> <span>— 30 agendamentos</span></div>
-            <div class="team-mini-item"><strong>Eduardo</strong> <span>— 22 agendamentos</span></div>
-            <div class="team-mini-item"><strong>Victor</strong> <span>— 3 agendamentos</span></div>
+          <div class="team-grid">
+            <div class="team-card">
+              <img src="https://ui-avatars.com/api/?name=Roger&background=c9a84c&color=0a0a0a&size=200&bold=true" alt="Roger - Barbeiro" loading="lazy" class="team-photo">
+              <strong>Roger</strong>
+            </div>
+            <div class="team-card">
+              <img src="https://ui-avatars.com/api/?name=Eduardo&background=c9a84c&color=0a0a0a&size=200&bold=true" alt="Eduardo - Barbeiro" loading="lazy" class="team-photo">
+              <strong>Eduardo</strong>
+            </div>
+            <div class="team-card">
+              <img src="https://ui-avatars.com/api/?name=Victor&background=c9a84c&color=0a0a0a&size=200&bold=true" alt="Victor - Barbeiro" loading="lazy" class="team-photo">
+              <strong>Victor</strong>
+            </div>
           </div>
           <div class="about-stats">
             <div class="stat-item">
