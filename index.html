@@ -778,6 +778,50 @@
     @media (max-width: 768px) {
       .whatsapp-float { width: 48px; height: 48px; font-size: 1.3rem; bottom: 1.2rem; right: 1.2rem; }
     }
+
+    /* ===== BOOKING MODAL ===== */
+    .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); z-index: 2000; display: none; align-items: center; justify-content: center; padding: 1rem; opacity: 0; transition: opacity 0.3s ease; }
+    .modal-overlay.active { display: flex; opacity: 1; }
+    .modal { background: var(--black-2); border: 1px solid rgba(201,168,76,0.2); border-radius: 12px; max-width: 520px; width: 100%; max-height: 90vh; overflow-y: auto; padding: 2.5rem 2rem; position: relative; transform: translateY(20px) scale(0.95); transition: transform 0.3s ease; }
+    .modal-overlay.active .modal { transform: translateY(0) scale(1); }
+    .modal-close { position: absolute; top: 1rem; right: 1rem; background: none; border: none; color: var(--gray); font-size: 1.5rem; cursor: pointer; transition: color 0.3s; font-family: var(--font-body); }
+    .modal-close:hover { color: var(--cream); }
+    .modal h2 { font-family: var(--font-display); font-size: 1.6rem; margin-bottom: 0.5rem; }
+    .modal p.sub { color: var(--gray); font-size: 0.9rem; margin-bottom: 1.5rem; font-weight: 300; }
+    .modal-step { display: block; }
+    .modal-step.hidden { display: none; }
+    .modal label { display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--gold); margin-bottom: 0.5rem; margin-top: 1.2rem; font-family: var(--font-alt); }
+    .service-option { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 0.8rem 1rem; margin-bottom: 0.5rem; background: var(--black-3); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; cursor: pointer; transition: var(--transition); text-align: left; font-family: var(--font-body); font-size: 0.95rem; }
+    .service-option:hover { border-color: rgba(201,168,76,0.3); background: rgba(201,168,76,0.05); }
+    .service-option.selected { border-color: var(--gold); background: rgba(201,168,76,0.1); }
+    .service-option .name { color: var(--cream); font-weight: 500; }
+    .service-option .price { color: var(--gold); font-weight: 700; }
+    .barber-select { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.5rem; margin-bottom: 1.5rem; }
+    .barber-option { padding: 0.8rem 0.5rem; background: var(--black-3); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; cursor: pointer; text-align: center; transition: var(--transition); font-family: var(--font-body); font-size: 0.85rem; }
+    .barber-option:hover { border-color: rgba(201,168,76,0.3); }
+    .barber-option.selected { border-color: var(--gold); background: rgba(201,168,76,0.1); }
+    .barber-option .name { color: var(--cream); display: block; font-weight: 500; }
+    .barber-option .count { color: var(--gray); font-size: 0.75rem; }
+    .date-select input { width: 100%; padding: 0.8rem 1rem; background: var(--black-3); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; color: var(--cream); font-family: var(--font-body); font-size: 0.95rem; outline: none; transition: var(--transition); }
+    .date-select input:focus { border-color: var(--gold); }
+    .date-select input::-webkit-calendar-picker-indicator { filter: invert(0.8); cursor: pointer; }
+    .time-slots { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; margin-bottom: 1rem; }
+    .time-slot { padding: 0.6rem 0.3rem; background: var(--black-3); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; cursor: pointer; text-align: center; transition: var(--transition); font-family: var(--font-body); font-size: 0.85rem; color: var(--cream); }
+    .time-slot:hover { border-color: rgba(201,168,76,0.3); }
+    .time-slot.selected { border-color: var(--gold); background: rgba(201,168,76,0.1); color: var(--gold); }
+    .modal-btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; width: 100%; padding: 0.9rem; font-size: 0.95rem; font-weight: 600; border: none; border-radius: 6px; cursor: pointer; transition: var(--transition); text-transform: uppercase; letter-spacing: 1px; font-family: var(--font-alt); margin-top: 1rem; }
+    .modal-btn.primary { background: var(--gold); color: var(--black); }
+    .modal-btn.primary:hover { background: var(--gold-light); }
+    .modal-btn.whatsapp { background: #25D366; color: white; font-size: 1rem; }
+    .modal-btn.whatsapp:hover { background: #1ebe5d; }
+    .modal-btn.secondary { background: transparent; color: var(--gray); border: 1px solid rgba(255,255,255,0.1); margin-top: 0.5rem; }
+    .modal-btn.secondary:hover { border-color: var(--gray); color: var(--cream); }
+    .modal-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+    .modal-review { background: var(--black-3); border-radius: 8px; padding: 1rem 1.2rem; margin: 1rem 0; border: 1px solid rgba(201,168,76,0.1); }
+    .modal-review p { color: var(--gray-light); font-size: 0.9rem; line-height: 1.7; margin: 0; font-weight: 300; }
+    .modal-review p span { color: var(--cream); font-weight: 500; }
+    .modal-review .label { color: var(--gold); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; }
+    @media (max-width: 480px) { .barber-select { grid-template-columns: 1fr; } .time-slots { grid-template-columns: repeat(3, 1fr); } .modal { padding: 1.5rem 1.2rem; } }
   </style>
 </head>
 <body>
@@ -807,7 +851,7 @@
       <h1>Estilo que <em>fala</em> por você</h1>
       <p>Barbearia tradicional desde 2012. Cortes precisos, barba impecável e aquele atendimento que faz você voltar sempre — sem frescura, com qualidade.</p>
       <div class="hero-actions">
-        <a href="https://wa.me/556730459452?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20hor%C3%A1rio" target="_blank" class="btn btn-whatsapp">📱 Agendar pelo WhatsApp</a>
+        <a href="#" onclick="openBookingModal();return false;" class="btn btn-primary">📋 Agendar Agora</a>
         <a href="#servicos" class="btn btn-outline">Ver Serviços</a>
       </div>
     </div>
@@ -1011,7 +1055,7 @@
             <div class="location-icon">📱</div>
             <div>
               <h4>Agende Online</h4>
-              <p><a href="https://www.trinks.com/campo-grande-barbershop" target="_blank">Trinks.com/campo-grande-barbershop</a></p>
+              <p><a href="#" onclick="openBookingModal();return false;" style="color:var(--gold);text-decoration:underline;">Clique aqui para agendar</a></p>
             </div>
           </div>
           <div class="location-item">
@@ -1021,7 +1065,7 @@
               <p><a href="https://wa.me/556730459452" target="_blank">(67) 3045-9452</a></p>
             </div>
           </div>
-          <a href="https://wa.me/556730459452?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20hor%C3%A1rio" target="_blank" class="btn btn-whatsapp" style="align-self:flex-start;margin-top:0.5rem;">📱 Agende pelo WhatsApp</a>
+          <a href="https://wa.me/556730459452" target="_blank" class="btn btn-whatsapp" style="align-self:flex-start;margin-top:0.5rem;">📱 Agende pelo WhatsApp</a>
         </div>
         <div class="location-map reveal">
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.313226401273!2d-54.600437!3d-20.468129!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjDCsDI4JzA1LjMiUyA1NMKwMzYnMDEuNiJX!5e0!3m2!1spt-BR!2sbr!4v1" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -1030,16 +1074,104 @@
     </div>
   </section>
 
+  <!-- ===== BOOKING MODAL ===== -->
+  <div class="modal-overlay" id="bookingModal">
+    <div class="modal">
+      <button class="modal-close" onclick="closeBookingModal()">✕</button>
+      
+      <!-- Step 1 -->
+      <div class="modal-step" id="step1">
+        <h2>📋 Escolha o serviço</h2>
+        <p class="sub">Selecione o que você precisa</p>
+        <div class="service-select" id="serviceList">
+          <div class="service-option" data-service="Corte de Cabelo" data-price="R$ 50" onclick="selectService(this)">
+            <span class="name">✂️ Corte de Cabelo</span>
+            <span class="price">R$ 50</span>
+          </div>
+          <div class="service-option" data-service="Barba Tradicional" data-price="R$ 45" onclick="selectService(this)">
+            <span class="name">🧔 Barba Tradicional</span>
+            <span class="price">R$ 45</span>
+          </div>
+          <div class="service-option" data-service="Combo Cabelo + Barba" data-price="R$ 85" onclick="selectService(this)">
+            <span class="name">🔥 Combo Cabelo + Barba</span>
+            <span class="price">R$ 85</span>
+          </div>
+          <div class="service-option" data-service="Corte Infantil" data-price="R$ 40" onclick="selectService(this)">
+            <span class="name">👦 Corte Infantil</span>
+            <span class="price">R$ 40</span>
+          </div>
+          <div class="service-option" data-service="Sobrancelha" data-price="R$ 20" onclick="selectService(this)">
+            <span class="name">✨ Sobrancelha</span>
+            <span class="price">R$ 20</span>
+          </div>
+          <div class="service-option" data-service="Combo Premium" data-price="R$ 110" onclick="selectService(this)">
+            <span class="name">👑 Combo Premium</span>
+            <span class="price">R$ 110</span>
+          </div>
+        </div>
+        <button class="modal-btn primary" id="step1Btn" onclick="goToStep2()" disabled>Continuar →</button>
+      </div>
+      
+      <!-- Step 2 -->
+      <div class="modal-step hidden" id="step2">
+        <h2>💈 Escolha o barbeiro</h2>
+        <p class="sub">Quem vai te atender?</p>
+        <div class="barber-select">
+          <div class="barber-option" data-barber="Roger" onclick="selectBarber(this)">
+            <span class="name">Roger</span>
+            <span class="count">30 agendamentos</span>
+          </div>
+          <div class="barber-option" data-barber="Eduardo" onclick="selectBarber(this)">
+            <span class="name">Eduardo</span>
+            <span class="count">22 agendamentos</span>
+          </div>
+          <div class="barber-option" data-barber="Victor" onclick="selectBarber(this)">
+            <span class="name">Victor</span>
+            <span class="count">3 agendamentos</span>
+          </div>
+        </div>
+        <button class="modal-btn primary" id="step2Btn" onclick="goToStep3()" disabled>Continuar →</button>
+        <button class="modal-btn secondary" onclick="goToStep1()">← Voltar</button>
+      </div>
+      
+      <!-- Step 3 -->
+      <div class="modal-step hidden" id="step3">
+        <h2>📅 Escolha o dia</h2>
+        <p class="sub">Selecione a data e horário</p>
+        <div class="date-select">
+          <label>Data</label>
+          <input type="date" id="bookingDate" min="" onchange="generateTimeSlots()">
+        </div>
+        <div style="margin-top:1.2rem;">
+          <label>Horário</label>
+          <div class="time-slots" id="timeSlots"></div>
+        </div>
+        <button class="modal-btn primary" id="step3Btn" onclick="goToStep4()" disabled>Continuar →</button>
+        <button class="modal-btn secondary" onclick="goToStep2()">← Voltar</button>
+      </div>
+      
+      <!-- Step 4 -->
+      <div class="modal-step hidden" id="step4">
+        <h2>✅ Revisar agendamento</h2>
+        <p class="sub">Confira os dados antes de enviar</p>
+        <div class="modal-review" id="reviewContent"></div>
+        <button class="modal-btn whatsapp" onclick="sendToWhatsApp()">📱 Confirmar e Enviar via WhatsApp</button>
+        <button class="modal-btn secondary" onclick="goToStep3()">← Voltar</button>
+      </div>
+    </div>
+  </div>
+
   <!-- ===== CTA ===== -->
   <section id="contato">
     <div class="container cta-content">
       <div class="reveal">
         <span class="section-tag">Vem ser cliente</span>
         <h2 class="section-title">Pronto para um<br>visual novo?</h2>
-        <p>Agende seu horário pelo <a href="https://www.trinks.com/campo-grande-barbershop" target="_blank" style="color:var(--gold);">Trinks</a> ou WhatsApp. Se precisar cancelar, pedimos a gentileza de avisar com pelo menos 2 horas de antecedência.</p>
+        <p>Agende seu horário online agora mesmo! Escolha o serviço, barbeiro e horário — tudo enviado direto pro WhatsApp da barbearia.</p>
+        <p style="color:var(--gray); font-size:0.85rem; font-weight:300;">⏰ Cancelamento com 2h de antecedência.</p>
         <div class="cta-actions">
-          <a href="https://wa.me/556730459452?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20hor%C3%A1rio" target="_blank" class="btn btn-whatsapp">📱 Agendar Agora</a>
-          <a href="tel:556730459452" class="btn btn-outline">📞 Ligar (67) 3045-9452</a>
+          <a href="#" onclick="openBookingModal();return false;" class="btn btn-primary">📋 Agendar Agora</a>
+          <a href="https://wa.me/556730459452" target="_blank" class="btn btn-whatsapp">💬 Fale Conosco</a>
         </div>
       </div>
     </div>
@@ -1127,6 +1259,110 @@
     }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
     revealElements.forEach(el => revealObserver.observe(el));
+
+    // ===== BOOKING MODAL =====
+    let bookingData = { service: '', price: '', barber: '', date: '', time: '' };
+    const weekdayNames = ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'];
+    
+    function openBookingModal() {
+      document.getElementById('bookingModal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+      const t = new Date(); t.setDate(t.getDate() + 1);
+      document.getElementById('bookingDate').min = t.toISOString().split('T')[0];
+    }
+    function closeBookingModal() {
+      document.getElementById('bookingModal').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    document.getElementById('bookingModal').addEventListener('click', function(e) {
+      if (e.target === this) closeBookingModal();
+    });
+    
+    function selectService(el) {
+      document.querySelectorAll('.service-option').forEach(o => o.classList.remove('selected'));
+      el.classList.add('selected');
+      bookingData.service = el.dataset.service;
+      bookingData.price = el.dataset.price;
+      document.getElementById('step1Btn').disabled = false;
+    }
+    function selectBarber(el) {
+      document.querySelectorAll('.barber-option').forEach(o => o.classList.remove('selected'));
+      el.classList.add('selected');
+      bookingData.barber = el.dataset.barber;
+      document.getElementById('step2Btn').disabled = false;
+    }
+    function goToStep1() { document.querySelectorAll('.modal-step').forEach(s => s.classList.add('hidden')); document.getElementById('step1').classList.remove('hidden'); }
+    function goToStep2() { document.querySelectorAll('.modal-step').forEach(s => s.classList.add('hidden')); document.getElementById('step2').classList.remove('hidden'); }
+    function goToStep3() { document.querySelectorAll('.modal-step').forEach(s => s.classList.add('hidden')); document.getElementById('step3').classList.remove('hidden'); generateTimeSlots(); }
+    function goToStep4() {
+      if (!bookingData.date || !bookingData.time) return;
+      document.querySelectorAll('.modal-step').forEach(s => s.classList.add('hidden'));
+      document.getElementById('step4').classList.remove('hidden');
+      const d = new Date(bookingData.date + 'T12:00:00');
+      const dayName = weekdayNames[d.getDay()];
+      const formattedDate = d.toLocaleDateString('pt-BR');
+      document.getElementById('reviewContent').innerHTML =
+        '<p><span class="label">Serviço</span><br><span>' + bookingData.service + ' — ' + bookingData.price + '</span></p>' +
+        '<p style="margin-top:0.8rem;"><span class="label">Barbeiro</span><br><span>' + bookingData.barber + '</span></p>' +
+        '<p style="margin-top:0.8rem;"><span class="label">Data</span><br><span>' + dayName + ', ' + formattedDate + '</span></p>' +
+        '<p style="margin-top:0.8rem;"><span class="label">Horário</span><br><span>' + bookingData.time + '</span></p>';
+    }
+    
+    function generateTimeSlots() {
+      const dateInput = document.getElementById('bookingDate').value;
+      if (!dateInput) return;
+      bookingData.date = dateInput;
+      const slots = document.getElementById('timeSlots');
+      slots.innerHTML = '';
+      const d = new Date(dateInput + 'T12:00:00');
+      const day = d.getDay();
+      if (day === 0 || day === 1) {
+        slots.innerHTML = '<p style=\"color:var(--gray);grid-column:1/-1;text-align:center;\">🔒 Fechado neste dia</p>';
+        document.getElementById('step3Btn').disabled = true;
+        return;
+      }
+      let start = 9, end = 19;
+      if (day === 6) { start = 9; end = 16; }
+      document.getElementById('step3Btn').disabled = true;
+      for (let h = start; h < end; h++) {
+        for (let m of [0, 30]) {
+          const t = h.toString().padStart(2,'0') + ':' + m.toString().padStart(2,'0');
+          if (h === end-1 && m === 30) continue;
+          const slot = document.createElement('div');
+          slot.className = 'time-slot';
+          slot.textContent = t;
+          slot.onclick = function() { selectTime(this); };
+          slots.appendChild(slot);
+        }
+      }
+    }
+    
+    function selectTime(el) {
+      document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected'));
+      el.classList.add('selected');
+      bookingData.time = el.textContent;
+      document.getElementById('step3Btn').disabled = false;
+    }
+    
+    function sendToWhatsApp() {
+      const phone = '556730459452';
+      const d = new Date(bookingData.date + 'T12:00:00');
+      const dayName = weekdayNames[d.getDay()];
+      const formattedDate = d.toLocaleDateString('pt-BR');
+      const msg = 'Olá! Gostaria de agendar um horário 🙋‍♂️%0A%0A' +
+        '🔹 *Serviço:* ' + bookingData.service + ' (' + bookingData.price + ')%0A' +
+        '🔹 *Barbeiro:* ' + bookingData.barber + '%0A' +
+        '🔹 *Data:* ' + dayName + ', ' + formattedDate + '%0A' +
+        '🔹 *Horário:* ' + bookingData.time + '%0A%0A' +
+        'Pode confirmar?';
+      window.open('https://wa.me/55' + phone + '?text=' + msg, '_blank');
+      closeBookingModal();
+    }
+    
+    // Make booking callable from anywhere
+    document.querySelectorAll('a[href=\"#agendar\"]').forEach(a => {
+      a.addEventListener('click', function(e) { e.preventDefault(); openBookingModal(); });
+    });
   </script>
 </body>
 </html>
