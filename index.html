@@ -7,6 +7,7 @@
   <meta name="description" content="Barbearia profissional em Campo Grande - MS. Cortes modernos, barba tradicional e estilo único.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <meta property="og:title" content="Barbearia Campo Grande Barbershop">
   <meta property="og:description" content="Barbearia profissional em Campo Grande - MS. Cortes modernos, barba tradicional e estilo único.">
@@ -62,6 +63,7 @@
       <li><a href="#depoimentos">Depoimentos</a></li>
       <li><a href="#localizacao">Localização</a></li>
       <li><a href="#contato" class="nav-cta">Agendar</a></li>
+      <li><button class="theme-toggle-btn" onclick="toggleTheme()" aria-label="Alternar tema" title="Alternar tema claro/escuro"><i class="fas fa-moon"></i></button></li>
     </ul>
   </nav>
 
@@ -86,8 +88,8 @@
       <h1>Estilo que <em>fala</em> por você</h1>
       <p>Barbearia tradicional desde 2012. Trabalho honesto e sem glamour — cortes modernos, barba feita na navalha e aquele atendimento que faz você voltar sempre.</p>
       <div class="hero-actions">
-        <a href="#" onclick="openBookingModal();return false;" class="btn btn-primary">📋 Agendar Agora</a>
-        <a href="#servicos" class="btn btn-outline">Ver Serviços</a>
+        <a href="#" onclick="openBookingModal();return false;" class="btn btn-primary"><i class="fas fa-calendar-check"></i> Agendar Agora</a>
+        <a href="#servicos" class="btn btn-outline"><i class="fas fa-list-ul"></i> Ver Serviços</a>
       </div>
     </div>
     <div class="hero-scroll">
@@ -156,22 +158,22 @@
       </div>
       <div class="services-grid">
         <div class="service-card reveal">
-          <div class="service-icon">✂️</div>
+          <div class="service-icon"><i class="fas fa-cut"></i></div>
           <h3>Corte de Cabelo</h3>
           <p>Corte personalizado com tesoura e máquina. Inclui lavagem e finalização.</p>
         </div>
         <div class="service-card reveal">
-          <div class="service-icon">🧔</div>
+          <div class="service-icon"><i class="fas fa-user"></i></div>
           <h3>Barba (Aparar/Alinhar)</h3>
           <p>Aparar e alinhar a barba com navalha, toalha quente e balm hidratante.</p>
         </div>
         <div class="service-card reveal">
-          <div class="service-icon">🔥</div>
+          <div class="service-icon"><i class="fas fa-fire"></i></div>
           <h3>Cabelo + Barba</h3>
           <p>Nosso combo mais popular. Corte completo + barba. Economia e praticidade.</p>
         </div>
         <div class="service-card reveal">
-          <div class="service-icon">⚡</div>
+          <div class="service-icon"><i class="fas fa-bolt"></i></div>
           <h3>Raspar (Mesmo Tamanho)</h3>
           <p>Raspagem completa com o mesmo tamanho em todo o cabelo. Rápido e prático.</p>
         </div>
@@ -181,7 +183,7 @@
           <p>Depilação de orelha com pinça e navalha. Detalhe que faz a diferença.</p>
         </div>
         <div class="service-card reveal">
-          <div class="service-icon">👑</div>
+          <div class="service-icon"><i class="fas fa-crown"></i></div>
           <h3>Pacote VIP</h3>
           <p>Corte + Barba + Depilação. Saia completo e impecável da barbearia.</p>
         </div>
@@ -283,21 +285,21 @@
       <div class="location-grid">
         <div class="location-info reveal">
           <div class="location-item">
-            <div class="location-icon">📍</div>
+            <div class="location-icon"><i class="fas fa-location-dot"></i></div>
             <div>
               <h4>Endereço</h4>
               <p>R. José Antônio, 1072<br>Vila Rosa Pires, Campo Grande - MS<br>CEP: 79002-401</p>
             </div>
           </div>
           <div class="location-item">
-            <div class="location-icon">📞</div>
+            <div class="location-icon"><i class="fas fa-phone"></i></div>
             <div>
               <h4>Telefone</h4>
               <p><a href="tel:556730459452">(67) 3045-9452</a></p>
             </div>
           </div>
           <div class="location-item">
-            <div class="location-icon">🕐</div>
+            <div class="location-icon"><i class="fas fa-clock"></i></div>
             <div>
               <h4>Horários</h4>
               <p>
@@ -386,7 +388,7 @@
       
       <!-- Step 3 -->
       <div class="modal-step hidden" id="step3">
-        <h2>📅 Escolha o dia</h2>
+        <h2><i class="fas fa-calendar-alt"></i> Escolha o dia</h2>
         <p class="sub">Selecione a data e horário</p>
         <div class="date-select">
           <label>Data</label>
@@ -396,16 +398,24 @@
           <label>Horário</label>
           <div class="time-slots" id="timeSlots"></div>
         </div>
+        <div style="margin-top:1.2rem;">
+          <label>Seu nome</label>
+          <input type="text" id="bookingName" placeholder="Seu nome completo" style="width:100%;padding:0.7rem;background:var(--black-2);border:1px solid var(--gold-dark);color:var(--cream);border-radius:4px;font-family:var(--font-body);">
+        </div>
+        <div style="margin-top:0.8rem;">
+          <label>Seu telefone (WhatsApp)</label>
+          <input type="tel" id="bookingPhone" placeholder="(67) 99999-9999" style="width:100%;padding:0.7rem;background:var(--black-2);border:1px solid var(--gold-dark);color:var(--cream);border-radius:4px;font-family:var(--font-body);">
+        </div>
         <button class="modal-btn primary" id="step3Btn" onclick="goToStep4()" disabled>Continuar →</button>
         <button class="modal-btn secondary" onclick="goToStep2()">← Voltar</button>
       </div>
-      
+
       <!-- Step 4 -->
       <div class="modal-step hidden" id="step4">
-        <h2>✅ Revisar agendamento</h2>
+        <h2><i class="fas fa-circle-check"></i> Revisar agendamento</h2>
         <p class="sub">Confira os dados antes de enviar</p>
         <div class="modal-review" id="reviewContent"></div>
-        <button class="modal-btn whatsapp" onclick="sendToWhatsApp()">📱 Confirmar e Enviar via WhatsApp</button>
+        <button class="modal-btn whatsapp"><i class="fas fa-paper-plane"></i> Confirmar Agendamento</button>
         <button class="modal-btn secondary" onclick="goToStep3()">← Voltar</button>
       </div>
     </div>
@@ -420,7 +430,7 @@
         <p>Agende seu horário online agora mesmo! Escolha o serviço, barbeiro e horário — tudo enviado direto pro WhatsApp da barbearia.</p>
         <p style="color:var(--gray); font-size:0.85rem; font-weight:300;">⏰ Cancelamento com 2h de antecedência.</p>
         <div class="cta-actions">
-          <a href="#" onclick="openBookingModal();return false;" class="btn btn-primary">📋 Agendar Agora</a>
+          <a href="#" onclick="openBookingModal();return false;" class="btn btn-primary"><i class="fas fa-calendar-check"></i> Agendar Agora</a>
           <a href="https://wa.me/556730459452" target="_blank" class="btn btn-whatsapp">💬 Fale Conosco</a>
         </div>
       </div>
@@ -466,7 +476,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <span>&copy; 2025 Barbearia Campo Grande Barbershop. Todos os direitos reservados.</span>
+        <span>&copy; 2026 Barbearia Campo Grande Barbershop. Todos os direitos reservados.</span>
         <span>Feito com 💈 por <a href="#">Nosso Time</a></span>
       </div>
     </div>
@@ -474,7 +484,7 @@
 
   <!-- ===== WHATSAPP FLOAT ===== -->
   <a href="https://wa.me/556730459452?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20hor%C3%A1rio" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
-    💬
+    <i class="fab fa-whatsapp"></i>
   </a>
 
   <script src="script.js" defer></script>
